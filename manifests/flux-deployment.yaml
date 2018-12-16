@@ -23,7 +23,7 @@ spec:
             medium: Memory
       containers:
         - name: flux
-          image: quay.io/weaveworks/flux:1.7.1
+          image: quay.io/weaveworks/flux:1.8.1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3030
