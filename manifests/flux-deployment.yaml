@@ -1,0 +1,50 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: flux
+  namespace: flux
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        name: flux
+    spec:
+      serviceAccount: flux
+      volumes:
+        - name: git-key
+          secret:
+            secretName: flux-git-deploy
+            defaultMode: 256
+        - name: git-keygen
+          emptyDir:
+            medium: Memory
+      containers:
+        - name: flux
+          image: quay.io/weaveworks/flux:1.7.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3030
+          volumeMounts:
+            - name: git-key
+              mountPath: /etc/fluxd/ssh
+              readOnly: true
+            - name: git-keygen
+              mountPath: /var/fluxd/keygen
+          args: 
+            - "--ssh-keygen-dir=/var/fluxd/keygen"
+            - "--k8s-secret-name=flux-git-deploy"
+            - "--git-url=git@github.com:yaakov-h/home-kubernetes.git"
+            - "--git-branch=master"
+            - "--git-path=manifests" # This line needs to be tweaked for each cluster.
+            - "--git-sync-tag=flux-controller-sync" # This line also needs to be tweaked for each cluster, otherwise they could conflict.
+#            - "--connect=ws://fluxcloud"
+            - "--git-email=k8s-flux@yaakov.online"
+            - "--git-user=FLUX"
+            - "--sync-interval=300s"
+            - "--git-poll-interval=300s"
+            - "--memcached-hostname=memcached"
+            - "--memcached-service=memcached"
+            - "--git-ci-skip"
