@@ -36,7 +36,6 @@ spec:
           args: 
             - "--ssh-keygen-dir=/var/fluxd/keygen"
             - "--k8s-secret-name=flux-git-deploy"
-            - "--k8s-secret-data-key=id_ecdsa"
             - "--git-url=git@github.com:yaakov-h/home-kubernetes.git"
             - "--git-branch=master"
             - "--git-path=manifests"
