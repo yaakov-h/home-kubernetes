@@ -36,13 +36,14 @@ spec:
           args: 
             - "--ssh-keygen-dir=/var/fluxd/keygen"
             - "--k8s-secret-name=flux-git-deploy"
+            - "--k8s-secret-data-key=id_ecdsa"
             - "--git-url=git@github.com:yaakov-h/home-kubernetes.git"
             - "--git-branch=master"
             - "--git-path=manifests" # This line needs to be tweaked for each cluster.
             - "--git-sync-tag=flux-controller-sync" # This line also needs to be tweaked for each cluster, otherwise they could conflict.
 #            - "--connect=ws://fluxcloud"
             - "--git-email=k8s-flux@yaakov.online"
-            - "--git-user=FLUX"
+            - "--git-user=Flux (k8s)"
             - "--sync-interval=300s"
             - "--git-poll-interval=300s"
             - "--memcached-hostname=memcached"
