@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: thelounge
+  name: thelounge
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    certmanager.k8s.io/cluster-issuer: letsencrypt-yaakov.online
+spec:
+  tls:
+  - hosts:
+    - lounge.yaakov.online
+    secretName: lounge.yaakov.online
+  rules:
+  - host: lounge.yaakov.online
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: thelounge
+          servicePort: 9000
