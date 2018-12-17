@@ -17,7 +17,7 @@ spec:
       - name: thelounge
         image: thelounge/thelounge:3.0.0-rc.5
         volumeMounts:
-        - mountPath: /home/lounge/data
+        - mountPath: /var/opt/thelounge
           name: data
         ports:
         - containerPort: 9000
