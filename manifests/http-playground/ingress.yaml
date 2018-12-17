@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: http-playground
+  name: http-playground
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - http.yaakov.online
+    secretName: http.yaakov.online
+  rules:
+  - host: http.yaakov.online
+    http:
+      paths:
+      - path: /echo
+        backend:
+          serviceName: http-echo
+          servicePort: 80
+      - path: /clippy
+        backend:
+          serviceName: party-clippy
+          servicePort: 80

@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: http-playground
+  name: party-clippy
+spec:
+  template:
+    metadata:
+      labels:
+        app: party-clippy
+    spec:
+      containers:
+      - image: r.j3ss.co/party-clippy
+        name: party-clippy
+        tty: true
+        command: ["party-clippy"]
+        ports:
+        - containerPort: 8080

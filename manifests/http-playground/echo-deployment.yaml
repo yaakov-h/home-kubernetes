@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: http-playground
+  name: http-echo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: http-echo
+    spec:
+      containers:
+        - name: http-echo
+          image: solsson/http-echo
+          ports:
+            - containerPort: 80
+              protocol: TCP
