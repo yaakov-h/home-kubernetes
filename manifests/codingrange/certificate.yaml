@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: codingrange.com
   issuerRef:
-    name: letsencrypt-yaakov.online # Same Cloudflare account
+    name: letsencrypt-codingrange.com
     kind: ClusterIssuer
   commonName: codingrange.com
   dnsNames:
@@ -14,6 +14,6 @@ spec:
   acme:
     config:
       - dns01:
-          provider: cf-dns
+          provider: azure-dns
         domains:
         - codingrange.com
