@@ -14,6 +14,6 @@ spec:
   acme:
     config:
       - dns01:
-          provider: cf-dns
+          provider: azure-dns
         domains:
         - lounge.yaakov.online
