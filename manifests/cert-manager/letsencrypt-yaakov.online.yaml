@@ -10,9 +10,13 @@ spec:
       name: letsencrypt-yaakov.online
     dns01:
       providers:
-        - name: cf-dns
-          cloudflare:
-            email: yaakov@ownmail.net
-            apiKeySecretRef:
-              name: cloudflare-api-key
-              key: key
+        - name: azure-dns
+          azuredns:
+            clientID: ac788165-9821-430d-aee6-80053b0b349a
+            clientSecretSecretRef:
+              name: azuredns-principal
+              key: clientSecret
+            subscriptionID: adc9eef3-40a0-4f1f-9374-26dc251f852c
+            tenantID: 775a5e2a-df75-4691-bb33-fe640524e5d9
+            resourceGroupName: yaakov-online
+            hostedZoneName: yaakov.online
