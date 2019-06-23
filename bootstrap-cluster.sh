@@ -9,4 +9,4 @@ CLUSTER_NAME=${1:?Cluster parameter not set}
 echo Bootstrapping cluster $CLUSTER_NAME...
 
 ./bootstrap/install-weave.sh "${CLUSTER_NAME}"
-./bootstrap/install-ingress-nginx.sh
+#./bootstrap/install-ingress-nginx.sh
