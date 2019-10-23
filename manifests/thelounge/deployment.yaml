@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: thelounge
-        image: thelounge/thelounge:alpine
+        image: thelounge/thelounge:3.3.0-rc.2-alpine
         volumeMounts:
         - mountPath: /var/opt/thelounge
           name: data
