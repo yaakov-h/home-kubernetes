@@ -1,4 +1,4 @@
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-yaakov.online
@@ -19,7 +19,7 @@ spec:
           tenantID: 775a5e2a-df75-4691-bb33-fe640524e5d9
           resourceGroupName: yaakov-online
           hostedZoneName: yaakov.online
-        selectors:
-          dnsZones:
-          - 'yaakov.online'
+      selector:
+        dnsZones:
+        - 'yaakov.online'
 
