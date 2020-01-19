@@ -5,6 +5,7 @@ metadata:
   name: http-playground
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-yaakov.online
 spec:
   tls:
   - hosts:

@@ -5,6 +5,7 @@ metadata:
   name: blog
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-codingrange.com
 spec:
   tls:
   - hosts:
