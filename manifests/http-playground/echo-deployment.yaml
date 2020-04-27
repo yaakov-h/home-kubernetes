@@ -1,8 +1,11 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: http-playground
   name: http-echo
+  annotations:
+    fluxcd.io/automated: 'true'
 spec:
   replicas: 1
   selector:
@@ -14,8 +17,8 @@ spec:
         service: http-echo
     spec:
       containers:
-        - name: http-echo
-          image: solsson/http-echo
-          ports:
-            - containerPort: 80
-              protocol: TCP
+      - name: http-echo
+        image: solsson/http-echo
+        ports:
+        - containerPort: 80
+          protocol: TCP
