@@ -1,9 +1,12 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: http-playground
   name: party-clippy
 spec:
+  selector:
+    matchLabels:
+      app: party-clippy
   template:
     metadata:
       labels:
