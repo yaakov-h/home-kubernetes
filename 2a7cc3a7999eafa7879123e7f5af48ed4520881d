@@ -1,0 +1,1 @@
+{"jobID":"a2ce07db-c349-1541-4504-07271d0cc4fb","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"http-playground:deployment/party-clippy":{"add":{"automated":"true"},"remove":{}}}},"result":null}
