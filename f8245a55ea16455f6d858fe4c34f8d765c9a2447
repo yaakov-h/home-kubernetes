@@ -1,0 +1,1 @@
+{"jobID":"ed9f9bff-c751-5718-8f5a-d4368966512f","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"http-playground:deployment/http-echo":{"add":{"automated":"true"},"remove":{}}}},"result":null}
