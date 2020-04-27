@@ -1,8 +1,11 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: http-playground
   name: party-clippy
+  annotations:
+    fluxcd.io/automated: 'true'
 spec:
   selector:
     matchLabels:
