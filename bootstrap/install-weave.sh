@@ -14,12 +14,8 @@ fi
 
 kubectl apply -f secrets/sealed-secrets-master-key.yaml
 
-KUBESEAL_VERSION="v0.7.0"
-kubectl create -f https://github.com/bitnami-labs/sealed-secrets/releases/download/${KUBESEAL_VERSION}/sealedsecret-crd.yaml
+KUBESEAL_VERSION="v0.12.4"
 kubectl create -f https://github.com/bitnami-labs/sealed-secrets/releases/download/${KUBESEAL_VERSION}/controller.yaml
 
 kubectl apply -f bootstrap/flux-git-deploy.yaml
-kubectl apply -f bootstrap/flux-rbac.yaml
-kubectl apply -f bootstrap/flux-memcached.yaml
-
-kubectl apply -f manifests/flux-deployment.yaml
+kubectl apply -f bootstrap/flux-deployment.yaml
